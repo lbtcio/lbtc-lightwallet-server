@@ -1,0 +1,16 @@
+Metadata-Version: 1.2
+Name: electrumx
+Version: 1.2.1
+Summary: ElectrumX Server
+Home-page: https://github.com/kyuupichan/electrumx/
+Author: Neil Booth
+Author-email: kyuupichan@gmail.com
+License: MIT Licence
+Description-Content-Type: UNKNOWN
+Description: Server implementation for the Electrum wallet
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Internet
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Requires-Python: >=3.6
