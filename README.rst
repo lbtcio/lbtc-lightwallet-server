@@ -42,7 +42,7 @@ Getting Started
 ===============
 All the following command work normal on Ubuntu 16.04.3 LTS
 
-1.Inatall dependencies
+1.Install dependencies
 -------------
 
 sudo apt-get install software-properties-common
