@@ -27,7 +27,7 @@ from server.daemon import DaemonError
 from server.mempool import MemPool
 from server.peers import PeerManager
 from server.session import LocalRPC
-from server.block_processor import WitnessScanner
+from server.block_processor import WitnessScanner, CommitteeScanner, BillScanner
 
 
 class Controller(ServerBase):
@@ -79,6 +79,8 @@ class Controller(ServerBase):
         self.mempool = MemPool(self.bp, self)
         self.peer_mgr = PeerManager(env, self)
         self.witness_cache = WitnessScanner(self, self.daemon)
+        self.committee_cache = CommitteeScanner(self, self.daemon)
+        self.bill_cache = BillScanner(self, self.daemon)
 
     async def start_servers(self):
         '''Start the RPC server and schedule the external servers to be
@@ -217,6 +219,8 @@ class Controller(ServerBase):
         self.ensure_future(self.housekeeping())
         self.ensure_future(self.mempool.main_loop())
         self.ensure_future(self.witness_cache.main_loop())
+        self.ensure_future(self.committee_cache.main_loop())
+        self.ensure_future(self.bill_cache.main_loop())
 
     def close_servers(self, kinds):
         '''Close the servers of the given kinds (TCP etc.).'''
@@ -884,4 +888,12 @@ class Controller(ServerBase):
     async def address_get_witness(self, name):
         '''Return witness according name.'''
         return await self.witness_cache.get_witness(name)
+
+    async def address_get_committee(self, addr):
+        '''Return committee according addr.'''
+        return await self.committee_cache.get_committee(addr)
+
+    async def address_get_bill(self, title_hash):
+        '''Return bill according title hash.'''
+        return await self.bill_cache.get_bill(title_hash)
 

@@ -130,6 +130,7 @@ class Daemon(LoggedClass):
         max_secs = 4
         while True:
             try:
+                #self.logger.error('data={}'.format(data))
                 result = await self._send_data(data)
                 if not isinstance(result, tuple):
                     result = processor(result)
@@ -302,6 +303,30 @@ class Daemon(LoggedClass):
     async def listreceivedvotes(self, name):
         '''Return voted info of the name.'''
         return await self._send_single('listreceivedvotes', name)
+
+    async def getallcommittees(self):
+        '''Return all the committees in blockchain.'''
+        return await self._send_single('listcommittees')
+
+    async def listcommitteevoters(self, name):
+        '''Return voted info of the name.'''
+        return await self._send_single('listcommitteevoters', name)
+
+    async def listvotercommittees(self, addr):
+        '''Return the address voted committee.'''
+        return await self._send_single('listvotercommittees', addr)
+
+    async def getallbills(self):
+        '''Return all the bills in blockchain.'''
+        return await self._send_single('listbills')
+
+    async def getbill(self, title_hash):
+        '''Return the bill according title hash.'''
+        return await self._send_single('getbill', title_hash)
+
+    async def listvoterbills(self, addr):
+        '''Return the address voted bill.'''
+        return await self._send_single('listvoterbills', addr)
 
     def cached_mempool_hashes(self):
         '''Return the cached mempool hashes.'''

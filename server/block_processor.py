@@ -68,9 +68,101 @@ class WitnessScanner(LoggedClass):
                     if item.get('name') == name :
                         ret_val = item
                         return item
+        self.logger.info('getwitness : {}'.format(self.witness))
         self.logger.info('getwitness : {}'.format(ret_val))
         #return json.dumps(ret_val, cls = WitnessEncoder)
         return ret_val
+
+class Bill(object):
+    """bill info : id, title detail"""
+    def __init__(self, id = '', title = '', detail = '', url = '', endtime = 0, options = []):
+        self.id = id
+        self.title = title
+        self.detail = detail
+        self.url = url
+        self.endtime = endtime
+        self.options = options		
+		
+class BillEncoder(json.JSONEncoder):  
+    def default(self, obj):  
+        if isinstance(obj, Bill):  
+            return obj.__dict__  
+        return json.JSONEncoder.default(self, obj)
+
+class CommitteeScanner(LoggedClass):
+    '''Scan committee info to local cache.'''
+
+    def __init__(self, controller, daemon):
+        super().__init__()
+        self.daemon = daemon
+        self.controller = controller
+        self.semaphore = asyncio.Semaphore()
+        self.committee = []
+
+    async def main_loop(self):
+        '''Loop forever polling for committee.'''
+        while True:
+            await asyncio.sleep(5)
+            with await self.semaphore:
+                self.committee = await self.daemon.getallcommittees()
+                #if not self.committee :
+                    #self.committee.append(Witness(1, "aaa", "12p1StPMu7STbpfyy81rGAd5xwhC82MWej"))
+
+    async def get_committee(self, addr=None):
+        '''Get committee info according address.'''
+        with await self.semaphore:
+            if not addr :
+                return self.committee
+            else :
+                ret_val = Witness()
+                for item in self.committee :
+                    if item['address'] == addr :
+                        ret_val = item
+                        break
+        self.logger.info('getwitness : {}'.format(self.committee))
+        self.logger.info('getcommittee : {}'.format(ret_val))
+        return json.dumps(ret_val, cls = WitnessEncoder)
+
+class BillScanner(LoggedClass):
+    '''Scan bill info to local cache.'''
+
+    def __init__(self, controller, daemon):
+        super().__init__()
+        self.daemon = daemon
+        self.controller = controller
+        self.semaphore = asyncio.Semaphore()
+        self.bill = []
+
+    async def main_loop(self):
+        '''Loop forever polling for bill.'''
+        while True:
+            await asyncio.sleep(5)
+            with await self.semaphore:
+                self.bill = await self.daemon.getallbills()
+                if not self.bill :
+                    self.bill.append(Bill())
+                else:
+                    for each in self.bill:
+                        item = await self.daemon.getbill([each['id']])
+                        each['detail'] = item['detail']
+                        each['url'] = item['url']
+                        each['endtime'] = item['endtime']
+                        each['options'] = item['options']		# maybe deepcopy need
+
+    async def get_bill(self, title_hash=None):
+        '''Get bill info according title hash.'''
+        with await self.semaphore:
+            if not title_hash :
+                return self.bill
+            else :
+                ret_val = Bill()
+                for item in self.bill :
+                    if item['id'] == title_hash :
+                        ret_val = item
+                        break
+        self.logger.info('getbill : {}'.format(ret_val))
+        return json.dumps(ret_val, cls = BillEncoder)
+
 
 class Prefetcher(LoggedClass):
     '''Prefetches blocks (in the forward direction only).'''

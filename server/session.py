@@ -400,6 +400,51 @@ class ElectrumX(SessionBase):
             raise RPCError('the name was rejected by network rules.'
                            '\n\n{}\n[{}]'.format(message, name))
 
+    async def listcommitteevoters(self, name):
+        '''Get who voted to committee name.
+
+        name: the name of one committee'''
+        # This returns errors as JSON RPC errors, as is natural
+        try:
+            return await self.daemon.listcommitteevoters([name])
+        except DaemonError as e:
+            error, = e.args
+            message = error['message']
+            self.log_info('listcommitteevoters: {}'.format(message),
+                          throttle=True)
+            raise RPCError('the name was rejected by network rules.'
+                           '\n\n{}\n[{}]'.format(message, name))
+
+    async def listvotercommittees(self, addr):
+        '''Get committee list that addr voted.
+
+        addr: the address'''
+        # This returns errors as JSON RPC errors, as is natural
+        try:
+            return await self.daemon.listvotercommittees([addr])
+        except DaemonError as e:
+            error, = e.args
+            message = error['message']
+            self.log_info('listvotercommittees: {}'.format(message),
+                          throttle=True)
+            raise RPCError('the name was rejected by network rules.'
+                           '\n\n{}\n[{}]'.format(message, addr))
+
+    async def listvoterbills(self, addr):
+        '''Get bill list that addr voted.
+
+        addr: the address'''
+        # This returns errors as JSON RPC errors, as is natural
+        try:
+            return await self.daemon.listvoterbills([addr])
+        except DaemonError as e:
+            error, = e.args
+            message = error['message']
+            self.log_info('listvoterbills: {}'.format(message),
+                          throttle=True)
+            raise RPCError('the name was rejected by network rules.'
+                           '\n\n{}\n[{}]'.format(message, addr))
+
     async def transaction_broadcast(self, raw_tx):
         '''Broadcast a raw transaction to the network.
 
@@ -452,6 +497,11 @@ class ElectrumX(SessionBase):
             'blockchain.address.getwitness': controller.address_get_witness,
             'blockchain.address.listvoteddelegates': self.listvoteddelegates,
             'blockchain.address.listreceivedvotes': self.listreceivedvotes,
+            'blockchain.address.getcommittee': controller.address_get_committee,
+            'blockchain.address.listcommitteevoters': self.listcommitteevoters,
+            'blockchain.address.listvotercommittees': self.listvotercommittees,
+            'blockchain.address.getbill': controller.address_get_bill,
+            'blockchain.address.listvoterbills': self.listvoterbills,
             'blockchain.address.get_balance': controller.address_get_balance,
             'blockchain.address.get_history': controller.address_get_history,
             'blockchain.address.get_mempool': controller.address_get_mempool,
