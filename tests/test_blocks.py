@@ -4,6 +4,7 @@
 #
 # The MIT License (MIT)
 #
+#
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
 # "Software"), to deal in the Software without restriction, including
@@ -50,9 +51,11 @@ for name in os.listdir(BLOCKS_DIR):
         blocks.append(pytest.fail(name))
 
 
+        
 @pytest.fixture(params=blocks)
 def block_details(request):
     return request.param
+
 
 
 def test_block(block_details):
