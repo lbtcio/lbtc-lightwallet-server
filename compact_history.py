@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 #
+#
 # Copyright (c) 2017, Neil Booth
 #
 # All rights reserved.
 #
 # See the file "LICENCE" for information about the copyright
 # and warranty status of this software.
+
 
 '''Script to compact the history database.  This should save space and
 will reset the flush counter to a low number, avoiding overflow when
@@ -25,19 +27,23 @@ If you use daemon tools, you might run this script like so:
 Depending on your hardware this script may take up to 6 hours to
 complete; it logs progress regularly.
 
+
 Compaction can be interrupted and restarted harmlessly and will pick
 up where it left off.  However, if you restart ElectrumX without
 running the compaction to completion, it will not benefit and
 subsequent compactions will restart from the beginning.
 '''
 
+
 import logging
 import sys
 import traceback
 from os import environ
 
+
 from server.env import Env
 from server.db import DB
+
 
 
 def compact_history():
@@ -72,5 +78,6 @@ def main():
         logging.info('History compaction complete')
 
 
+         
 if __name__ == '__main__':
     main()
