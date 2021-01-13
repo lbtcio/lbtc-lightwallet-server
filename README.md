@@ -2,14 +2,19 @@
 LBTC Light Wallet Server based on ElectrumX
 ===============================================
 
+
 Licence: MIT
+
 
 Language: Python (>= 3.6)
  
+ 
  Author: Benjamin Smith
+
 
 Features
 ========
+
 
 - Efficient, lightweight reimplementation of electrum-server
 - Fast synchronization of bitcoin mainnet from Genesis.  Recent
@@ -98,6 +103,7 @@ bitcoin-cli stop
 bitcoind -txindex
 ```
 **Benjamin Smith**  sunshine.benjamin.smith@gmail.com
+
 
 1ECSDWsm17fbCECgdb5MvR3EZMT6Sbd232
 
