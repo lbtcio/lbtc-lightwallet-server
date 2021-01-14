@@ -42,9 +42,11 @@ Features
 - Peer discovery protocol removes need for IRC
 - Coin abstraction makes compatible altcoin and testnet support easy.
 
+
 Getting Started 
 ===============
 All the following command work normal on Ubuntu 16.04.3 LTS
+
 
 1.Install dependencies
 -------------
@@ -85,6 +87,7 @@ source env.conf
 nohup ./electrumx_server.py &
 ```
 
+
 5. Run LBTC full node wallet
 -------------
 download LBTC full node on http://lbtc.io/
@@ -102,6 +105,7 @@ If you already have lbtc bitcoin node installed, you need to stop and restart it
 bitcoin-cli stop
 bitcoind -txindex
 ```
+
 **Benjamin Smith**  sunshine.benjamin.smith@gmail.com
 
 
