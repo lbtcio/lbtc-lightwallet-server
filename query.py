@@ -70,6 +70,7 @@ def main():
         print('Balance: {} {}'.format(coin.decimal_value(balance),
                                       coin.SHORTNAME))
 
+        
 
 if __name__ == '__main__':
     main()
