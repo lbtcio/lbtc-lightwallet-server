@@ -12,6 +12,8 @@ Language: Python (>= 3.6)
  Author: Benjamin Smith
 
 
+
+
 Features
 ========
 
@@ -105,6 +107,8 @@ If you already have lbtc bitcoin node installed, you need to stop and restart it
 bitcoin-cli stop
 bitcoind -txindex
 ```
+
+
 
 **Benjamin Smith**  sunshine.benjamin.smith@gmail.com
 
