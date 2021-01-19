@@ -5,9 +5,12 @@
 # All rights reserved.
 #
 # See the file "LICENCE" for information about the copyright
+
 # and warranty status of this software.
 
+
 '''Script to query the database for debugging purposes.
+
 
 Not currently documented; might become easier to use in future.
 '''
@@ -16,7 +19,9 @@ Not currently documented; might become easier to use in future.
 import sys
 
 from server.env import Env
+
 from server.db import DB
+
 from lib.hash import hash_to_str
 
 
