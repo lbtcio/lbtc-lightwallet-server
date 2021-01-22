@@ -1,4 +1,5 @@
 import setuptools
+
 from server.version import VERSION
 
 
@@ -23,4 +24,5 @@ setuptools.setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: Unix',
     ],
+    
 )
