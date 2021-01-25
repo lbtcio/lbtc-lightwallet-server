@@ -1,5 +1,6 @@
 
 LBTC Light Wallet Server based on ElectrumX
+
 ===============================================
 
 
@@ -45,9 +46,12 @@ Features
 - Coin abstraction makes compatible altcoin and testnet support easy.
 
 
+
 Getting Started 
 ===============
 All the following command work normal on Ubuntu 16.04.3 LTS
+
+
 
 
 1.Install dependencies
@@ -63,6 +67,8 @@ sudo apt-get install python3-leveldb libleveldb-dev
 sudo apt-get install g++
 sudo pip3 install aiohttp pylru leveldb plyvel
 ```
+
+
 2. Prepare work directory
 -------------
 
@@ -77,12 +83,16 @@ rm server.pass.key
 openssl req -new -key server.key -out server.csr
 openssl x509 -req -days 1825 -in server.csr -signkey server.key -out server.crt
 ```
+
+
 3. Init environment
 -------------
 Note : You should change some config info in env.conf before run following command
 ```
 source env.conf
 ```
+
+
 4. Run LBTC light wallet server
 -------------
 ```
