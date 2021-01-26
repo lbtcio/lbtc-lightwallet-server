@@ -5,7 +5,9 @@
 # All rights reserved.
 #
 # See the file "LICENCE" for information about the copyright
+
 # and warranty status of this software.
+
 
 '''Script to send RPC commands to a running ElectrumX server.'''
 
@@ -15,6 +17,7 @@ import asyncio
 import json
 from functools import partial
 from os import environ
+
 
 from lib.jsonrpc import JSONSession, JSONRPCv2
 from server.controller import Controller
@@ -89,6 +92,7 @@ def main():
 
     rpc_send_and_wait(port, method, params)
 
+    
 
 if __name__ == '__main__':
     main()
