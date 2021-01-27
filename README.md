@@ -1,6 +1,7 @@
 
 LBTC Light Wallet Server based on ElectrumX
 
+
 ===============================================
 
 
@@ -10,6 +11,7 @@ Licence: MIT
 Language: Python (>= 3.6)
  
  
+ 
  Author: Benjamin Smith
 
 
@@ -17,6 +19,7 @@ Language: Python (>= 3.6)
 
 Features
 ========
+
 
 
 - Efficient, lightweight reimplementation of electrum-server
@@ -47,9 +50,11 @@ Features
 
 
 
+
 Getting Started 
 ===============
 All the following command work normal on Ubuntu 16.04.3 LTS
+
 
 
 
@@ -69,6 +74,7 @@ sudo pip3 install aiohttp pylru leveldb plyvel
 ```
 
 
+
 2. Prepare work directory
 -------------
 
@@ -85,6 +91,7 @@ openssl x509 -req -days 1825 -in server.csr -signkey server.key -out server.crt
 ```
 
 
+
 3. Init environment
 -------------
 Note : You should change some config info in env.conf before run following command
@@ -93,11 +100,13 @@ source env.conf
 ```
 
 
+
 4. Run LBTC light wallet server
 -------------
 ```
 nohup ./electrumx_server.py &
 ```
+
 
 
 5. Run LBTC full node wallet
@@ -121,7 +130,6 @@ bitcoind -txindex
 
 
 **Benjamin Smith**  sunshine.benjamin.smith@gmail.com
-
 
 1ECSDWsm17fbCECgdb5MvR3EZMT6Sbd232
 
