@@ -52,7 +52,11 @@ Features
 
 
 Getting Started 
+
+
 ===============
+
+
 All the following command work normal on Ubuntu 16.04.3 LTS
 
 
@@ -78,6 +82,7 @@ sudo pip3 install aiohttp pylru leveldb plyvel
 2. Prepare work directory
 -------------
 
+
 To allow lbtc light wallets to connect to your server over SSL you need to create a self-signed certificate.
 ```
 mkdir ~/.electrumx/mainnet.db -p
@@ -101,11 +106,13 @@ source env.conf
 
 
 
+
 4. Run LBTC light wallet server
 -------------
 ```
 nohup ./electrumx_server.py &
 ```
+
 
 
 
@@ -129,8 +136,10 @@ bitcoind -txindex
 
 
 
+
 **Benjamin Smith**  sunshine.benjamin.smith@gmail.com
 
 1ECSDWsm17fbCECgdb5MvR3EZMT6Sbd232
+
 
 
