@@ -1,9 +1,13 @@
 import setuptools
 
+
+
 from server.version import VERSION
 
 
+
 setuptools.setup(
+    
     name='electrumx',
     version=VERSION.split()[-1],
     scripts=['electrumx_server.py', 'electrumx_rpc.py'],
@@ -23,6 +27,8 @@ setuptools.setup(
         'Topic :: Internet',
         'License :: OSI Approved :: MIT License',
         'Operating System :: Unix',
+        
     ],
+    
     
 )
