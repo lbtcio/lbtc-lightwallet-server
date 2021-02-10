@@ -1,14 +1,10 @@
 #!/usr/bin/env python3.6
-#
 # Copyright (c) 2016, Neil Booth
-#
 # All rights reserved.
-#
 # See the file "LICENCE" for information about the copyright
-
 # and warranty status of this software.
-
 '''Script to kick off the server.'''
+
 
 import logging
 import traceback
@@ -32,7 +28,6 @@ def main():
         logging.critical('ElectrumX server terminated abnormally')
     else:
         logging.info('ElectrumX server terminated normally')
-
 
 if __name__ == '__main__':
     main()
