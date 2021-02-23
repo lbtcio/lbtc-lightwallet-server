@@ -8,13 +8,10 @@
 
 # and warranty status of this software.
 
-
 '''Script to query the database for debugging purposes.
-
 
 Not currently documented; might become easier to use in future.
 '''
-
 
 import sys
 
@@ -74,8 +71,7 @@ def main():
         balance = bp.get_balance(hashX)
         print('Balance: {} {}'.format(coin.decimal_value(balance),
                                       coin.SHORTNAME))
-
-        
+      
 
 if __name__ == '__main__':
     main()
