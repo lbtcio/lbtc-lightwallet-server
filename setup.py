@@ -1,8 +1,7 @@
 import setuptools
-
 from server.version import VERSION
-
 setuptools.setup(
+    
     
     name='electrumx',
     version=VERSION.split()[-1],
@@ -24,7 +23,5 @@ setuptools.setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: Unix',
         
-    ],
-    
-    
+    ],   
 )
