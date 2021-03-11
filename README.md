@@ -33,6 +33,7 @@ Features
   client requests.  Busy clients should not noticeably impede other
   clients' requests and notifications, nor the processing of incoming
   blocks and mempool updates.
+  
 - Daemon failover.  More than one daemon can be specified, and
   ElectrumX will failover round-robin style if the current one fails
   for any reason.
