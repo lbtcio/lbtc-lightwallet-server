@@ -1,5 +1,7 @@
 import setuptools
+
 from server.version import VERSION
+
 setuptools.setup(
     
     
