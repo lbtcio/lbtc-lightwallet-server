@@ -1,6 +1,8 @@
 import setuptools
 
+
 from server.version import VERSION
+
 
 setuptools.setup(
     
@@ -26,4 +28,5 @@ setuptools.setup(
         'Operating System :: Unix',
         
     ],   
+    
 )
