@@ -1,11 +1,15 @@
 
 LBTC Light Wallet Server based on ElectrumX
 
+
 ===============================================
+
 
 Licence: MIT
 
+
 Language: Python (>= 3.6)
+ 
  
  Author: Benjamin Smith
 
