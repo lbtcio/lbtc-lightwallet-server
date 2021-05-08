@@ -11,9 +11,7 @@ Licence: MIT
 Language: Python (>= 3.6)
  
 
-
  Author: Benjamin Smith
-
 
 
 Features
