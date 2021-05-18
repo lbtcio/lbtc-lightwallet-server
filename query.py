@@ -8,7 +8,9 @@
 
 # and warranty status of this software.
 
+
 '''Script to query the database for debugging purposes.
+
 
 Not currently documented; might become easier to use in future.
 '''
